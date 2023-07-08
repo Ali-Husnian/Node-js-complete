@@ -2,6 +2,12 @@
 
 const fs = require('fs');
 
-const hello = "Hello World !";
+const textIn = fs.readFileSync('./txt/input.txt','utf-8',);
+console.log(textIn);
 
-console.log(hello);
+const textOut = `This what is we know about the avocados: ${textIn}.\nCreate on ${Date.now()}`;
+
+fs.writeFileSync('./txt/output.txt',textOut);
+
+console.log(`Written File => ${textOut}`);
+
