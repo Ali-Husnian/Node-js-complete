@@ -1,6 +1,8 @@
 // import module
 const fs = require('fs');
 const http = require('http');
+const url = require('url');
+
 /**************************/
 /*      FILE SYSTEM       */
 /**************************/
@@ -36,8 +38,13 @@ fs.readFile('./txt/start.txt', 'utf-8' ,(err,data1) => {
 /*         SERVER         */
 /**************************/
 const server = http.createServer((req,res) =>{
-    console.log(req);
-    res.end('Hello form the server!');
+    const pathName = req.url;
+    
+    if(pathName === '/' || pathName === '/overview'){
+        res.end('This is the OVWRVIEW');
+    } else if(pathName === '/product'){
+        res.end('This is the PRODUCT');
+    }
 })
 server.listen(3000,"127.0.0.1",() => {
     console.log('Listening to request on port 3000');
