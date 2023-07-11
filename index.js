@@ -1,5 +1,9 @@
 // import module
 const fs = require('fs');
+const http = require('http');
+/**************************/
+/*      FILE SYSTEM       */
+/**************************/
 
 // Bolocking synchronous way
 /*
@@ -11,6 +15,7 @@ console.log(`Written File => ${textOut}`);
 */
 
 // Non-bolocking asynchronous way
+/*
 fs.readFile('./txt/start.txt', 'utf-8' ,(err,data1) => {
     if(err) {
         return console.log("Error ! 🎇");
@@ -23,8 +28,17 @@ fs.readFile('./txt/start.txt', 'utf-8' ,(err,data1) => {
             fs.writeFile('/.txt/final.txt',`${data2}\n${data3}` , (err) => {
                 console.log('your file is written');
             })
-            
         })
     })
-
+})
+*/
+/**************************/
+/*         SERVER         */
+/**************************/
+const server = http.createServer((req,res) =>{
+    console.log(req);
+    res.end('Hello form the server!');
+})
+server.listen(3000,"127.0.0.1",() => {
+    console.log('Listening to request on port 3000');
 })
