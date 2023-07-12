@@ -44,6 +44,12 @@ const server = http.createServer((req,res) =>{
         res.end('This is the OVWRVIEW');
     } else if(pathName === '/product'){
         res.end('This is the PRODUCT');
+    } else{  // 404 page
+        res.writeHead(404,{
+            'Content-type':'text/html',
+            'my-own-header':'hello world'
+        });
+        res.end('<h1>Page Not Found!</h1>');
     }
 })
 server.listen(3000,"127.0.0.1",() => {
