@@ -1,0 +1,28 @@
+{
+  "name": "node-farm",
+  "version": "1.0.0",
+  "description": "This is node-farm application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ali-Husnian/Node-js-complete.git"
+  },
+  "keywords": [
+    "Learn",
+    "Complete",
+    "node-farm",
+    "node.js"
+  ],
+  "author": "Ali Husnain",  
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ali-Husnian/Node-js-complete/issues"
+  },
+  "homepage": "https://github.com/Ali-Husnian/Node-js-complete#readme",
+  "dependencies": {
+    "slugify": "^1.6.6"
+  }
+}
