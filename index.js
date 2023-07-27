@@ -48,41 +48,41 @@ const dataObj = JSON.parse(data);
 // const slug = dataObj.map(item => slugify(item.productName,{lower:true,replacement:'&'}))
 // console.log(slug);
 // console.log(slugify('Ali Husnian Sale Frich Avocados',{lower:true,replacement:'-',remove:null}))
-const server = http.createServer((req,res) =>{
+const server = http.createServer((req, res) => {
 
     const { query, pathname } = url.parse(req.url, true);
-    
+
     // OVERVIEW PAGE
-    if(pathname === '/' || pathname === '/overview'){
-        res.writeHead(200,{'Content-type':'text/html'})
+    if (pathname === '/' || pathname === '/overview') {
+        res.writeHead(200, { 'Content-type': 'text/html' })
 
-        const cardhtml = dataObj.map((el) => replaceTamplete(tampCard ,el)).join('');
-        
-        const output = tampOverview.replace('{%PRODUCT_CARDS%}',cardhtml);
+        const cardhtml = dataObj.map((el) => replaceTamplete(tampCard, el)).join('');
+
+        const output = tampOverview.replace('{%PRODUCT_CARDS%}', cardhtml);
 
         res.end(output);
 
-    // PRODUCT PAGE
-    } else if(pathname === '/product'){
-        res.writeHead(200,{'Content-type':'text/html'})
+        // PRODUCT PAGE
+    } else if (pathname === '/product') {
+        res.writeHead(200, { 'Content-type': 'text/html' })
         const product = dataObj[query.id];
-        const output = replaceTamplete(tampProduct,product);
+        const output = replaceTamplete(tampProduct, product);
         res.end(output);
 
-     // API   
-    } else if(pathname === '/api'){
-        res.writeHead(200,{'Content-type':'application/json'})
+        // API   
+    } else if (pathname === '/api') {
+        res.writeHead(200, { 'Content-type': 'application/json' })
         res.end(data);
 
-    // 404 page
-    } else {  
-        res.writeHead(404,{
-            'Content-type':'text/html',
-            'my-own-header':'hello world'
+        // 404 page
+    } else {
+        res.writeHead(404, {
+            'Content-type': 'text/html',
+            'my-own-header': 'hello world'
         });
         res.end('<h1>Page Not Found!</h1>');
     }
 })
-server.listen(3000,"127.0.0.1",() => {
+server.listen(3000, "127.0.0.1", () => {
     console.log('Listening to request on port 3000');
 })
