@@ -2,6 +2,7 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
+const slugify = require('slugify');
 const replaceTamplete = require('./modules/replaceTamplete');
 /**************************/
 /*      FILE SYSTEM       */
@@ -44,6 +45,9 @@ const tampProduct = fs.readFileSync(`${__dirname}/templates/template-product.htm
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
 
+// const slug = dataObj.map(item => slugify(item.productName,{lower:true,replacement:'&'}))
+// console.log(slug);
+// console.log(slugify('Ali Husnian Sale Frich Avocados',{lower:true,replacement:'-',remove:null}))
 const server = http.createServer((req,res) =>{
 
     const { query, pathname } = url.parse(req.url, true);
