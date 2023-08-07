@@ -75,12 +75,35 @@ const getDogPic = async () => {
         console.log('Rendom Dog image saved in file');
     } catch (err) {
         console.log(err);
+        throw err;
     }
-   
+    return "2:Ready 🐶";  
 }
-getDogPic();
+/////////// error heandle catch method
+( async ()=>{
+    try {
+        console.log("1:I will get dog pics")
+        const x = await getDogPic()
+        console.log(x);
+        console.log("3:Done I will getting dog pics")
+    } catch (err) {
+        console.log("ERROR 🎇");
+    }
+})();
 
-   /*
+/*
+/////////// error heandle catch method
+console.log("1:I will get dog pics")
+getDogPic().then( (x) => {
+    console.log(x);
+    console.log("3:Done I will getting dog pics")
+})
+.catch(err =>{
+    console.log("ERROR 🎇");
+})
+
+
+*/   /*
     readFilePromis(`${__dirname}/dog.txt`).then(data => {
         console.log(`Breed: ${data}`);
         return superagent
