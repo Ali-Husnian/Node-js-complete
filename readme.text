@@ -1,0 +1,4 @@
+ npm install eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react --save-dev
+
+ Website ===> follow rules ---> www.eslint.org
+ DB_CONNECTION ===> mongodb+srv://alihusnain:<password>@cluster0.jjri44o.mongodb.net/
